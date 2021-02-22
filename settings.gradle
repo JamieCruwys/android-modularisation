@@ -1,0 +1,6 @@
+include ':features:base'
+include ':features:crypto'
+include ':features:forex'
+include ':features:metal'
+include ':app'
+rootProject.name = "modularisation"

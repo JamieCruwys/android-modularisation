@@ -1,0 +1,11 @@
+apply from: "$rootProject.projectDir/android-library.gradle"
+
+dependencies {
+    implementation Libs.core_ktx
+    implementation Libs.appcompat
+    implementation Libs.material
+    implementation Libs.constraint_layout
+
+    implementation project(":features:base")
+    testImplementation project(":features:base")
+}

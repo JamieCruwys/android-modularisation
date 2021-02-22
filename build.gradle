@@ -1,0 +1,21 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath GradlePlugins.android
+        classpath GradlePlugins.kotlin
+        classpath GradlePlugins.dagger_hilt
+        classpath GradlePlugins.detekt
+        classpath GradlePlugins.spotless
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}

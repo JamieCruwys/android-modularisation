@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="forex_title">Foreign Exchange</string>
+    <string name="forex_loading">Loading</string>
+    <string name="forex_toolbar_title">Forex</string>
+</resources>

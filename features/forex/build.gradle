@@ -1,0 +1,20 @@
+apply from: "$rootProject.projectDir/android-library.gradle"
+
+dependencies {
+    implementation Libs.core_ktx
+    implementation Libs.appcompat
+    implementation Libs.material
+    implementation Libs.constraint_layout
+    implementation Libs.recyclerView
+    implementation Libs.coroutines
+
+    // Marked as api due to https://stackoverflow.com/a/47128596
+    api Libs.retrofit
+    api Libs.retrofit_gson_converter
+
+    implementation Libs.okhttp_logging_interceptor
+    implementation Libs.gson
+
+    implementation project(":features:base")
+    testImplementation project(":features:base")
+}

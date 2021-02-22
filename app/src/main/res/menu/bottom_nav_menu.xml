@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/forexNavGraph"
+        android:title="@string/menu_forex"
+        android:icon="@drawable/ic_forex" />
+    <item
+        android:id="@+id/cryptoNavGraph"
+        android:title="@string/menu_crypto"
+        android:icon="@drawable/ic_crypto" />
+    <item
+        android:id="@+id/metalNavGraph"
+        android:title="@string/menu_metals"
+        android:icon="@drawable/ic_metals" />
+</menu>

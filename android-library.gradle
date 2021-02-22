@@ -1,0 +1,84 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'io.gitlab.arturbosch.detekt'
+
+apply from: "$project.rootDir/spotless.gradle"
+
+android {
+    compileSdkVersion Versions.compile_sdk
+    buildToolsVersion Versions.build_tools
+
+    defaultConfig {
+        minSdkVersion Versions.min_sdk
+        targetSdkVersion Versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    detekt {
+        config = files("${project.rootDir}/detekt.yml")
+        parallel = true
+    }
+}
+
+dependencies {
+    // Kotlin
+    implementation Libs.kotlin_std_lib
+
+    // Navigation
+    implementation Libs.navigation_fragment
+    implementation Libs.navigation_ui
+
+    // Dagger hilt
+    implementation Libs.dagger_hilt
+    kapt AnnotationLibs.dagger_hilt_compiler
+
+    // Hilt view model support
+    implementation Libs.dagger_hilt_viewmodel
+    kapt AnnotationLibs.androidx_dagger_hilt_compiler
+
+    // Logging
+    implementation Libs.timber
+
+    // Coroutines
+    implementation Libs.coroutines
+
+    // Unit testing
+    testImplementation UnitTestLibs.junit
+    testImplementation UnitTestLibs.mockk
+    testImplementation UnitTestLibs.archTesting
+    testImplementation UnitTestLibs.kluent
+    testImplementation UnitTestLibs.coroutines
+
+    // UI testing
+    androidTestImplementation UITestLibs.kluent
+    androidTestImplementation UITestLibs.espresso
+    androidTestImplementation UITestLibs.navigation
+    androidTestImplementation UITestLibs.androidx_junit
+    androidTestImplementation UITestLibs.androidx_espresso
+}

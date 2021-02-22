@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Modularisation</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="menu_forex">Forex</string>
+    <string name="menu_metals">Metals</string>
+    <string name="menu_crypto">Crypto</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="forex_item_text_size">28sp</dimen>
+    <dimen name="forex_item_spacing">16dp</dimen>
+    <dimen name="forex_item_horizontal_padding">16dp</dimen>
+    <dimen name="forex_item_vertical_padding">8dp</dimen>
+</resources>

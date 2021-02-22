@@ -1,0 +1,18 @@
+apply from: "$rootProject.projectDir/android-library.gradle"
+
+dependencies {
+    // Using implementation instead of testImplementation because this module will be added as
+    // testImplementation. Using implementation lets us write tests for test utilities
+
+    // Unit testing
+    implementation UnitTestLibs.archTesting
+    implementation UnitTestLibs.kluent
+    implementation UnitTestLibs.coroutines
+
+    // UI testing
+    implementation UITestLibs.kluent
+    implementation UITestLibs.espresso
+    implementation UITestLibs.navigation
+    implementation UITestLibs.androidx_junit
+    implementation UITestLibs.androidx_espresso
+}

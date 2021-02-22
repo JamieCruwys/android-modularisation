@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingVertical="@dimen/forex_item_vertical_padding"
+    android:paddingHorizontal="@dimen/forex_item_horizontal_padding">
+
+    <TextView
+        android:id="@+id/forex_currency_symbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/forex_item_text_size"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="CAD" />
+
+    <Space
+        android:id="@+id/forex_item_spacing"
+        android:layout_width="@dimen/forex_item_spacing"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toEndOf="@+id/forex_currency_symbol"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/forex_currency_symbol" />
+
+    <TextView
+        android:id="@+id/forex_currency_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forex_loading"
+        android:textSize="@dimen/forex_item_text_size"
+        app:layout_constraintStart_toEndOf="@+id/forex_item_spacing"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        tools:text="1.7491147974" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

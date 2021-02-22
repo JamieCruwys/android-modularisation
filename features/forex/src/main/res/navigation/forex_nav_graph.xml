@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/forexNavGraph"
+    app:startDestination="@id/forexFragment">
+
+    <fragment
+        android:id="@+id/forexFragment"
+        android:name="uk.co.jamiecruwys.feature.forex.presentation.ForexFragment"
+        android:label="@string/forex_toolbar_title" />
+</navigation>
