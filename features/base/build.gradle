@@ -5,8 +5,6 @@ dependencies {
     // testImplementation. Using implementation lets us write tests for test utilities
 
     // Unit testing
-    implementation UnitTestLibs.archTesting
-    implementation UnitTestLibs.kluent
     implementation UnitTestLibs.coroutines
 
     // UI testing

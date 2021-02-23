@@ -70,6 +70,7 @@ object UnitTestLibs {
 object UITestLibs {
     val androidx_junit = "androidx.test.ext:junit:${Versions.androidx_junit}"
     val androidx_espresso = "androidx.test.espresso:espresso-core:${Versions.androidx_espresso}"
+    val mockk = "io.mockk:mockk-android:${Versions.mockk}"
     val kluent = "org.amshove.kluent:kluent-android:${Versions.kluent}"
     val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     val navigation = "androidx.navigation:navigation-testing:${Versions.navigation}"
