@@ -13,4 +13,4 @@
  */
 package uk.co.jamiecruwys.feature.forex.data.domain
 
-data class ForexDomainModel(val name: String, val value: Double)
+data class ForexDomainModel(val name: String, val value: Float)

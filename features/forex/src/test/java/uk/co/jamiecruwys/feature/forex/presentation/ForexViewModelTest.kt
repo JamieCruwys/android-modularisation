@@ -88,7 +88,7 @@ class ForexViewModelTest {
     fun `when forex has items when load() called then items should be returned`() {
         // Given
         val fakeItems = listOf(
-            ForexDomainModel("CAD", 1.22)
+            ForexDomainModel("CAD", 1.22f)
         )
         val fakeUser = User("")
         coEvery { forexRepository.getData() } returns fakeItems
@@ -149,9 +149,9 @@ class ForexViewModelTest {
     @Test
     fun `when load() called then data should be emitted and loading should be false`() {
         // Given
-        val fakeItems = listOf<ForexDomainModel>(
-            ForexDomainModel("CAD", 1.433),
-            ForexDomainModel("USD", 1.01)
+        val fakeItems = listOf(
+            ForexDomainModel("CAD", 1.433f),
+            ForexDomainModel("USD", 1.01f)
         )
         val fakeUser = User("Sarah")
         coEvery { forexRepository.getData() } returns fakeItems

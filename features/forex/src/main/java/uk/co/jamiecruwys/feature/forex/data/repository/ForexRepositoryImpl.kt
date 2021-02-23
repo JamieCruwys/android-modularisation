@@ -59,10 +59,5 @@ class ForexRepositoryImpl @Inject constructor(
         )
     }
 
-    private fun createItem(name: String, value: Float): ForexDomainModel {
-        return ForexDomainModel(
-            name = name,
-            value = value.toDouble()
-        )
-    }
+    private fun createItem(name: String, value: Float) = ForexDomainModel(name, value)
 }
