@@ -117,6 +117,30 @@ If you don't want to describe the behaviour of each method, then you should use 
 
 Personally, I think the second option is much cleaner to read so this is what this project uses.
 
+### Test data
+
+Some tests use JSON files. For this project the test data is provided by [android-modularisation-test-data](https://github.com/JamieCruwys/android-modularisation-test-data) in the form of a submodule.
+
+This shared repository may be used by other platforms e.g. iOS.
+
+In order to use the JSON files, they must exist in `androidTest/assets`.
+
+The following gradle scripts adds the test data files into `androidTest/assets` for the `forex` module:
+
+```
+android {
+    // This will include the contents of testData/forex into the androidTest/assets folder,
+    // allowing us to use the json files for testing
+    sourceSets {
+        androidTest {
+            assets.srcDirs += ["$rootProject.projectDir/testData/forex"]
+        }
+    }
+}
+```
+
+For more information please see the [forex module's build gradle](features/forex/build.gradle).
+
 ## Navigation
 
 This project uses the [navigation component](https://developer.android.com/guide/navigation/navigation-getting-started) to move the user between different screens.
