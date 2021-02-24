@@ -119,13 +119,13 @@ Personally, I think the second option is much cleaner to read so this is what th
 
 ### Test data
 
-Some tests use JSON files. For this project the test data is provided by [android-modularisation-test-data](https://github.com/JamieCruwys/android-modularisation-test-data) in the form of a submodule.
+Some tests use JSON files. For this project the test data is provided by [android-modularisation-test-data](https://github.com/JamieCruwys/android-modularisation-test-data) in the form of a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
 
 This shared repository may be used by other platforms e.g. iOS.
 
 In order to use the JSON files, they must exist in `androidTest/assets`.
 
-The following gradle scripts adds the test data files into `androidTest/assets` for the `forex` module:
+The following gradle script adds the test data files into `androidTest/assets` for the `forex` module:
 
 ```
 android {
