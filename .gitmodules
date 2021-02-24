@@ -1,0 +1,3 @@
+[submodule "testData"]
+	path = testData
+	url = git@github.com:JamieCruwys/android-modularisation-test-data.git
