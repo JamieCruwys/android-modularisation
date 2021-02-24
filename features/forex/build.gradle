@@ -1,5 +1,15 @@
 apply from: "$rootProject.projectDir/android-library.gradle"
 
+android {
+    // This will include the contents of testData/forex into the androidTest/assets folder,
+    // allowing us to use the json files for testing
+    sourceSets {
+        androidTest {
+            assets.srcDirs += ["$rootProject.projectDir/testData/forex"]
+        }
+    }
+}
+
 dependencies {
     implementation Libs.core_ktx
     implementation Libs.appcompat
