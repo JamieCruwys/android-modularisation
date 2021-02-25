@@ -23,8 +23,8 @@ dependencies {
     api Libs.retrofit_gson_converter
 
     implementation Libs.okhttp_logging_interceptor
-    implementation Libs.gson
 
     implementation project(":features:base")
     testImplementation project(":features:base")
+    androidTestImplementation project(":features:base")
 }

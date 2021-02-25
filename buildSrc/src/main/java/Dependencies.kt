@@ -32,6 +32,7 @@ object Versions {
     val okhttp_logging_interceptor = "3.12.0"
     val detekt = "1.10.0"
     val spotless = "3.27.0"
+    val picasso = "2.71828"
 }
 
 object Libs {
@@ -52,6 +53,7 @@ object Libs {
     val retrofit_gson_converter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
     val gson = "com.google.code.gson:gson:${Versions.gson}"
     val okhttp_logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp_logging_interceptor}"
+    val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
 }
 
 object AnnotationLibs {

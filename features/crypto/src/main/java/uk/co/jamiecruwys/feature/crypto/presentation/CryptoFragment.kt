@@ -17,18 +17,54 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
+import uk.co.jamiecruwys.base.data.User
+import uk.co.jamiecruwys.feature.crypto.data.domain.CryptoDomainModel
 import uk.co.jamiecruwys.feature.crypto.databinding.FragmentCryptoBinding
 
+@AndroidEntryPoint
 class CryptoFragment : Fragment() {
     lateinit var binding: FragmentCryptoBinding
+    private val viewModel: CryptoViewModel by viewModels()
+    private val cryptoAdapter = CryptoAdapter()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.loading.observe(this, { handleLoadingState(it) })
+        viewModel.items.observe(this, { handleItemsState(it) })
+        viewModel.user.observe(this, { handleUserState(it) })
+        viewModel.load()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentCryptoBinding.inflate(layoutInflater)
+        binding.cryptoList.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = cryptoAdapter
+        }
         return binding.root
+    }
+
+    private fun handleLoadingState(loading: Boolean) {
+        binding.cryptoLoading.isVisible = loading
+        binding.cryptoList.isVisible = !loading
+    }
+
+    private fun handleItemsState(items: List<CryptoDomainModel>) {
+        cryptoAdapter.items = items
+    }
+
+    private fun handleUserState(user: User) {
+        val name = user.name
+        Toast.makeText(context, "Name: $name", Toast.LENGTH_SHORT).show()
     }
 }

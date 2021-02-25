@@ -11,15 +11,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.co.jamiecruwys.feature.forex.data.api
+package uk.co.jamiecruwys.feature.crypto.data.repository
 
-import uk.co.jamiecruwys.base.loadJson
+import uk.co.jamiecruwys.feature.crypto.data.domain.CryptoDomainModel
 
-class MockForexService : ForexService {
-    var getRatesResponse: ForexApiResponse = "".loadJson()
-    var getRatesWithBaseResponse: ForexApiResponse = "".loadJson()
-
-    override suspend fun getRates(): ForexApiResponse = getRatesResponse
-
-    override suspend fun getRatesWithBase(baseCurrency: String): ForexApiResponse = getRatesWithBaseResponse
+interface CryptoRepository {
+    suspend fun getPrices(): List<CryptoDomainModel>
 }

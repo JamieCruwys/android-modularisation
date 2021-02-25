@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.co.jamiecruwys
+package uk.co.jamiecruwys.base
 
 import androidx.test.platform.app.InstrumentationRegistry
 import com.google.gson.Gson

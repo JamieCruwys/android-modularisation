@@ -1,6 +1,8 @@
 apply from: "$rootProject.projectDir/android-library.gradle"
 
 dependencies {
+    implementation Libs.gson
+
     // Using implementation instead of testImplementation because this module will be added as
     // testImplementation. Using implementation lets us write tests for test utilities
 

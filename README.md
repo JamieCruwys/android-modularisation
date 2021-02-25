@@ -242,6 +242,35 @@ In this case the `ForexViewModel` has the `UserRepository` dependency resolved b
 
 The `app` module needs the `base` module in order to resolve the full dependency graph for DI.
 
+### Providing multiple dependencies of the same type
+
+As the dependency graph expands, you may end up having to provide multiple dependencies of the same type.
+
+For example, the `forex` module and `crypto` module both provide [OkHttpClient](https://square.github.io/okhttp/) and [Retrofit](https://square.github.io/retrofit/) instances.
+
+See [CryptoModuleNetworkDependencies](features/crypto/src/main/java/uk/co/jamiecruwys/feature/di/CryptoModuleNetworkDependencies.kt) for an example.
+
+When Dagger encounters multiple bindings of the same type it will throw an exception as it has no idea which way to provide the dependency.
+
+We can use qualifier annotations to tell Dagger which binding we would like it to use.
+
+There are two ways of setting qualifier annotations:
+
+1) Use `javax.inject`'s [@Named annotation](https://docs.oracle.com/javaee/7/api/javax/inject/Named.html) e.g. `@Named("CryptoOkHttp")`
+
+2) Define your own annotation like so:
+
+```
+@Retention(AnnotationRetention.BINARY)
+@Qualifier
+annotation class CryptoOkHttp
+```
+
+And then reference it using `@CryptoOkHttp`.
+
+
+I personally prefer the second option as the first option has the possibility of typos, whereas the second option will be checked during compilation.
+
 ## Feature modules
 
 TODO:
@@ -258,13 +287,8 @@ This module provides:
 
 ### crypto
 
-TODO:
-
-- [ ] Create example data for `crypto` module
-- [ ] Build UI for `crypto` module using example data
-- [ ] Find an API for cryptocurrency prices
-- [ ] Implement API for `crypto` module
-- [ ] Replace `crypto` example data with API data
+* Shows crypto prices
+* Data loaded from https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc
 
 ### forex
 

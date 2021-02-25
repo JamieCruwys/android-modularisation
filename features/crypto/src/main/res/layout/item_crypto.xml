@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingVertical="@dimen/crypto_item_vertical_padding"
+    android:paddingHorizontal="@dimen/crypto_item_horizontal_padding">
+
+    <ImageView
+        android:id="@+id/crypto_image"
+        android:layout_width="@dimen/crypto_item_image_size"
+        android:layout_height="@dimen/crypto_item_image_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="@dimen/crypto_item_spacing"
+        tools:ignore="ContentDescription" />
+
+    <Space
+        android:id="@+id/forex_image_spacing"
+        android:layout_width="@dimen/crypto_item_spacing"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toEndOf="@+id/crypto_image"
+        app:layout_constraintTop_toTopOf="@id/crypto_name"
+        app:layout_constraintBottom_toBottomOf="@id/crypto_name" />
+
+    <TextView
+        android:id="@+id/crypto_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/crypto_item_text_size"
+        app:layout_constraintTop_toTopOf="@id/crypto_image"
+        app:layout_constraintBottom_toBottomOf="@id/crypto_image"
+        app:layout_constraintStart_toEndOf="@id/forex_image_spacing"
+        tools:text="BTC" />
+
+    <Space
+        android:id="@+id/forex_item_spacing"
+        android:layout_width="@dimen/crypto_item_spacing"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toEndOf="@+id/crypto_name"
+        app:layout_constraintTop_toTopOf="@id/crypto_name"
+        app:layout_constraintBottom_toBottomOf="@id/crypto_name" />
+
+    <TextView
+        android:id="@+id/crypto_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/crypto_item_text_size"
+        app:layout_constraintStart_toEndOf="@+id/forex_item_spacing"
+        app:layout_constraintTop_toTopOf="@id/crypto_name"
+        app:layout_constraintEnd_toEndOf="@id/crypto_name"
+        app:layout_constraintHorizontal_bias="0"
+        tools:text="51964.00" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

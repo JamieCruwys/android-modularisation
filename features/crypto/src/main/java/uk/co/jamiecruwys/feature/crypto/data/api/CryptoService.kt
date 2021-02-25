@@ -11,15 +11,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.co.jamiecruwys.feature.forex.data.api
+package uk.co.jamiecruwys.feature.crypto.data.api
 
-import uk.co.jamiecruwys.base.loadJson
+import retrofit2.http.GET
 
-class MockForexService : ForexService {
-    var getRatesResponse: ForexApiResponse = "".loadJson()
-    var getRatesWithBaseResponse: ForexApiResponse = "".loadJson()
-
-    override suspend fun getRates(): ForexApiResponse = getRatesResponse
-
-    override suspend fun getRatesWithBase(baseCurrency: String): ForexApiResponse = getRatesWithBaseResponse
+interface CryptoService {
+    @GET("coins/markets?vs_currency=usd&order=market_cap_desc")
+    suspend fun getPrices(): List<CryptoApiItem>?
 }

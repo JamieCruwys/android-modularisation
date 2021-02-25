@@ -8,4 +8,5 @@ dependencies {
 
     implementation project(":features:base")
     testImplementation project(":features:base")
+    androidTestImplementation project(":features:base")
 }

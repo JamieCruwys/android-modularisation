@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.co.jamiecruwys.feature.forex.di
+package uk.co.jamiecruwys.feature.crypto.di
 
 import dagger.Module
 import dagger.Provides
@@ -21,15 +21,15 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import uk.co.jamiecruwys.feature.forex.BuildConfig
-import uk.co.jamiecruwys.feature.forex.data.api.ForexService
+import uk.co.jamiecruwys.feature.crypto.BuildConfig
+import uk.co.jamiecruwys.feature.crypto.data.api.CryptoService
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object ForexModuleNetworkDependencies {
-    @ForexOkHttp
+object CryptoModuleNetworkDependencies {
+    @CryptoOkHttp
     @Singleton
     @Provides
     fun provideOkHttpClient(): OkHttpClient = if (BuildConfig.DEBUG) {
@@ -44,25 +44,25 @@ object ForexModuleNetworkDependencies {
             .build()
     }
 
-    @ForexRetrofit
+    @CryptoRetrofit
     @Singleton
     @Provides
-    fun providesRetrofit(@ForexOkHttp okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-        .baseUrl("https://api.exchangeratesapi.io/")
+    fun providesRetrofit(@CryptoOkHttp okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
+        .baseUrl("https://api.coingecko.com/api/v3/")
         .addConverterFactory(GsonConverterFactory.create())
         .client(okHttpClient)
         .build()
 
     @Singleton
     @Provides
-    fun providesForexService(@ForexRetrofit retrofit: Retrofit): ForexService =
-        retrofit.create(ForexService::class.java)
+    fun providesCryptoService(@CryptoRetrofit retrofit: Retrofit): CryptoService =
+        retrofit.create(CryptoService::class.java)
 }
 
 @Retention(AnnotationRetention.BINARY)
 @Qualifier
-annotation class ForexOkHttp
+annotation class CryptoOkHttp
 
 @Retention(AnnotationRetention.BINARY)
 @Qualifier
-annotation class ForexRetrofit
+annotation class CryptoRetrofit

@@ -11,15 +11,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.co.jamiecruwys.feature.forex.data.api
+package uk.co.jamiecruwys.feature.crypto.di
 
-import uk.co.jamiecruwys.base.loadJson
+import dagger.Binds
+import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import uk.co.jamiecruwys.feature.crypto.data.repository.CryptoRepository
+import uk.co.jamiecruwys.feature.crypto.data.repository.CryptoRepositoryImpl
+import javax.inject.Singleton
 
-class MockForexService : ForexService {
-    var getRatesResponse: ForexApiResponse = "".loadJson()
-    var getRatesWithBaseResponse: ForexApiResponse = "".loadJson()
-
-    override suspend fun getRates(): ForexApiResponse = getRatesResponse
-
-    override suspend fun getRatesWithBase(baseCurrency: String): ForexApiResponse = getRatesWithBaseResponse
+@Module
+@InstallIn(SingletonComponent::class)
+interface CryptoModuleDependencies {
+    @Singleton
+    @Binds
+    fun providesCryptoRepositoryImpl(cryptoRepositoryImpl: CryptoRepositoryImpl): CryptoRepository
 }

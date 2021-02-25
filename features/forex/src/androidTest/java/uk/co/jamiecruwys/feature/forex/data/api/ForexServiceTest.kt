@@ -21,9 +21,9 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import uk.co.jamiecruwys.base.CoroutineTestRule
+import uk.co.jamiecruwys.base.loadJson
 import uk.co.jamiecruwys.feature.forex.data.domain.ForexDomainModel
 import uk.co.jamiecruwys.feature.forex.data.repository.ForexRepositoryImpl
-import uk.co.jamiecruwys.loadJson
 import kotlin.test.assertEquals
 
 @RunWith(JUnit4::class)

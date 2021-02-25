@@ -11,15 +11,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.co.jamiecruwys.feature.forex.data.api
+package uk.co.jamiecruwys.feature.crypto.data.api
 
-import uk.co.jamiecruwys.base.loadJson
+import com.google.gson.annotations.SerializedName
 
-class MockForexService : ForexService {
-    var getRatesResponse: ForexApiResponse = "".loadJson()
-    var getRatesWithBaseResponse: ForexApiResponse = "".loadJson()
-
-    override suspend fun getRates(): ForexApiResponse = getRatesResponse
-
-    override suspend fun getRatesWithBase(baseCurrency: String): ForexApiResponse = getRatesWithBaseResponse
-}
+data class CryptoApiItem(
+    @SerializedName("id") val id: String,
+    @SerializedName("symbol") val symbol: String,
+    @SerializedName("name") val name: String,
+    @SerializedName("image") val imageUrl: String,
+    @SerializedName("current_price") val price: Double
+)
